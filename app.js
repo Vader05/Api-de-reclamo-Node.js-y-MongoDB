@@ -11,13 +11,9 @@ var cors = require('cors');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var employeeRouter= require('./routes/api/employee'); 
-<<<<<<< HEAD
 var clientRouter = require('./routes/api/client');
 var userRouter= require ('./routes/api/user');
-=======
-var serviceRouter = require('./routes/servicesRouter');
-
->>>>>>> 65d3ec8385e1da5794dbd26a45951aaf38da126b
+var serviceRouter = require('./routes/servicesRouter')
 
 var app = express();
 
@@ -33,13 +29,7 @@ connect.then(cb => {
 }).catch(err => console.log(err));
 
 
-<<<<<<< HEAD
 app.use(logger('dev')); 
-=======
-//Middlewares
-app.use(cors());
-app.use(logger('dev'));
->>>>>>> 65d3ec8385e1da5794dbd26a45951aaf38da126b
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -51,17 +41,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api/employee', employeeRouter);
-<<<<<<< HEAD
 app.use('/api/clients', clientRouter);
 app.use('/api/user', userRouter);
-=======
 app.use('/services', serviceRouter);
 
-
-
-
-//ErrorHandling
->>>>>>> 65d3ec8385e1da5794dbd26a45951aaf38da126b
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
