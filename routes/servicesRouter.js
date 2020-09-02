@@ -39,9 +39,9 @@ serviceRouter.route('/')
 })
 
 
-promotionRouter.route('/:serviceId')
+serviceRouter.route('/:serviceId')
 .get((req, res, next) => {
-    Services.findById(req.params.promoId)
+    Services.findById(req.params.serviceId)
     .then((service) => {
         res.statusCode = 200
         res.setHeader('Content-Type', 'application/json')
