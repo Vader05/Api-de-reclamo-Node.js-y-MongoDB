@@ -16,6 +16,9 @@ const serviceSchema = new Schema ({
         type: Currency,
         required: true,
         min: 0
+    },
+    url: {
+        type: String
     }
 })
 
