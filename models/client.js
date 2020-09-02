@@ -1,5 +1,50 @@
 const mongoose= require('mongoose');
 const Schema= mongoose.Schema;
+const prueba = new Schema({name:{type: String}});
+
+const claimSchema = new Schema({
+    claimArea : {
+        type: String,
+        required: false
+    },
+    description: {
+        type: String,
+        required: true
+    },
+    date: {
+        type: Date,
+        default: Date.now()
+    },
+    reply: {
+        type: String,
+        required: false
+    }
+});
+
+const clientServiceSchema = new Schema({
+    employeeId: {
+        type: String,
+        required: true
+    },
+    serviceId: {
+        type: String,
+        //type: mongoose.Schema.Types.ObjectId,
+        //ref: 'Service'
+        required: true
+    },
+    registrationDate: {
+        type: Date,
+        default: Date.now()
+    },
+    supportDate: {
+        type: Date,
+        required: false
+    },
+    state: {
+        type: String,
+        required: true
+    }
+});
 
 const ClientSchema = new Schema({
     dniClient:{
@@ -22,49 +67,10 @@ const ClientSchema = new Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'User'
     },
-    claim: [claimSchema],
-    service: [clientServiceSchema]
-});
-
-const claimSchema = new Schema({
-    claimArea : {
-        type: String,
-        required: true
-    },
-    description: {
-        type: String,
-        required: true
-    },
-    date: {
-        type: Date,
-        default: Date.now()
-    },
-    reply: {
-        type: String,
-        required: true
-    }
-});
-const clientServiceSchema = new Schema({
-    employeeId: {
-        type: String,
-        required: true
-    },
-    serviceId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Service'
-    },
-    registrationDate: {
-        type: Date,
-        default: Date.now()
-    },
-    supportDate: {
-        type: Date,
-        default: Date.now()
-    },
-    state: {
-        type: String,
-        required: true
-    }
+    claim:[claimSchema],
+        
+    service:[clientServiceSchema]
+    
 });
 
 

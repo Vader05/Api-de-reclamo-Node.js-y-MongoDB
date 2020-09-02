@@ -11,8 +11,9 @@ var cors = require('cors');
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var employeeRouter= require('./routes/api/employee'); 
-var serviceRouter = require('./routes/servicesRouter');
-
+var clientRouter = require('./routes/api/client');
+var userRouter= require ('./routes/api/user');
+var serviceRouter = require('./routes/servicesRouter')
 
 var app = express();
 
@@ -28,9 +29,7 @@ connect.then(cb => {
 }).catch(err => console.log(err));
 
 
-//Middlewares
-app.use(cors());
-app.use(logger('dev'));
+app.use(logger('dev')); 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
@@ -42,12 +41,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api/employee', employeeRouter);
+app.use('/api/clients', clientRouter);
+app.use('/api/user', userRouter);
 app.use('/services', serviceRouter);
 
-
-
-
-//ErrorHandling
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
