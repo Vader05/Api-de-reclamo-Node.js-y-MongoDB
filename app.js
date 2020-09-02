@@ -5,6 +5,7 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose =  require('mongoose');
 var config = require('./config/config');
+var cors = require('cors');
 
 //Importing routes
 var indexRouter = require('./routes/index');
@@ -28,6 +29,7 @@ connect.then(cb => {
 
 
 //Middlewares
+app.use(cors());
 app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
