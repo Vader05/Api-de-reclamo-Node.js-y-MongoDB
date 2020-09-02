@@ -1,17 +1,17 @@
-//3party modules
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose =  require('mongoose');
-var config = require('../Api-de-reclamo-Node.js-y-MongoDB/config/config');
-
+var config = require('./config/config');
 
 //Importing routes
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var employeeRouter= require('./routes/api/employee'); 
+var serviceRouter = require('./routes/servicesRouter');
+
 
 var app = express();
 
@@ -40,7 +40,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api/employee', employeeRouter);
-
+app.use('/services', serviceRouter);
 
 
 

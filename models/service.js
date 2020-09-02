@@ -16,7 +16,7 @@ const serviceSchema = new Schema ({
         type: Currency,
         required: true,
         min: 0
-    },
+    }
 })
 
 var Service = mongoose.model('Service', serviceSchema);
