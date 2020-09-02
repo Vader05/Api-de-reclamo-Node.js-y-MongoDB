@@ -1,0 +1,122 @@
+[
+  {
+    "type": "Vertide",
+    "description": "commodo amet minim sint excepteur ea aliqua pariatur consequat dolore labore fugiat nulla eiusmod eu irure reprehenderit labore consectetur cupidatat do consectetur aute ullamco anim",
+    "price": "$1,035.45",
+    "url": "images/service0"
+  },
+  {
+    "type": "Neteria",
+    "description": "ex nostrud eiusmod labore occaecat pariatur tempor consectetur dolore cillum nisi pariatur eu magna sit et ullamco exercitation nostrud anim ad nulla officia elit duis",
+    "price": "$923.93",
+    "url": "images/service1"
+  },
+  {
+    "type": "Arctiq",
+    "description": "culpa culpa aliquip ipsum nisi aliqua consequat ut proident duis cupidatat tempor adipisicing incididunt ea duis quis voluptate et cillum sint voluptate duis laboris magna",
+    "price": "$258.29",
+    "url": "images/service2"
+  },
+  {
+    "type": "Fibrodyne",
+    "description": "magna esse cillum in aute ullamco excepteur cillum dolore cupidatat ad esse do proident aliquip consectetur nisi est incididunt esse laborum velit aliquip aliquip eu",
+    "price": "$1,046.17",
+    "url": "images/service3"
+  },
+  {
+    "type": "Talae",
+    "description": "enim pariatur aliquip aliquip id consectetur aute pariatur sunt dolor dolor non fugiat exercitation elit velit ea sint ullamco minim fugiat veniam ea voluptate commodo",
+    "price": "$570.62",
+    "url": "images/service4"
+  },
+  {
+    "type": "Translink",
+    "description": "Lorem sit ea deserunt elit nulla incididunt cillum pariatur adipisicing voluptate dolore aliqua excepteur minim occaecat labore occaecat aliqua quis anim pariatur tempor velit do",
+    "price": "$390.86",
+    "url": "images/service5"
+  },
+  {
+    "type": "Acumentor",
+    "description": "voluptate officia mollit laborum veniam laborum esse proident consectetur veniam nostrud do ad exercitation adipisicing id reprehenderit do mollit cupidatat excepteur consequat sit proident quis",
+    "price": "$862.08",
+    "url": "images/service6"
+  },
+  {
+    "type": "Artiq",
+    "description": "Lorem commodo sit mollit ex elit eiusmod duis sint pariatur aliqua elit elit aute ullamco culpa consequat dolor enim exercitation incididunt est ex pariatur magna",
+    "price": "$739.44",
+    "url": "images/service7"
+  },
+  {
+    "type": "Aquasure",
+    "description": "culpa est irure exercitation consectetur nulla irure id tempor veniam mollit minim sunt cillum dolore consequat ullamco cillum cupidatat dolore irure ex magna qui dolor",
+    "price": "$902.91",
+    "url": "images/service8"
+  },
+  {
+    "type": "Terrasys",
+    "description": "labore fugiat culpa in elit ipsum adipisicing elit laborum laborum qui eu do sunt cillum esse eu occaecat veniam nulla in sunt consectetur quis adipisicing",
+    "price": "$374.79",
+    "url": "images/service9"
+  },
+  {
+    "type": "Comcur",
+    "description": "ad non cillum consectetur aute aliquip do ut proident esse culpa ea reprehenderit fugiat sit commodo tempor anim aute cupidatat veniam dolore dolore laboris officia",
+    "price": "$410.98",
+    "url": "images/service10"
+  },
+  {
+    "type": "Megall",
+    "description": "do quis nostrud minim occaecat sunt adipisicing culpa Lorem incididunt cupidatat duis officia mollit Lorem mollit cupidatat consequat non in duis dolor velit et commodo",
+    "price": "$787.16",
+    "url": "images/service11"
+  },
+  {
+    "type": "Zytrek",
+    "description": "id eiusmod sunt aute ut aliquip veniam nulla irure laboris enim laboris ut sint ut et commodo duis sit duis exercitation sunt irure laborum laborum",
+    "price": "$172.58",
+    "url": "images/service12"
+  },
+  {
+    "type": "Medifax",
+    "description": "est est amet incididunt duis est culpa eiusmod aliqua elit laborum in elit qui anim qui irure laboris enim do non esse cupidatat eiusmod fugiat",
+    "price": "$177.60",
+    "url": "images/service13"
+  },
+  {
+    "type": "Corecom",
+    "description": "deserunt officia excepteur veniam culpa proident irure cillum ullamco sit est incididunt consectetur id magna voluptate Lorem amet laboris esse mollit eiusmod veniam adipisicing aute",
+    "price": "$1,117.54",
+    "url": "images/service14"
+  },
+  {
+    "type": "Snips",
+    "description": "commodo adipisicing qui id reprehenderit voluptate ullamco culpa minim velit ex deserunt dolor ea culpa culpa elit eiusmod enim Lorem cillum labore nostrud qui culpa",
+    "price": "$1,122.10",
+    "url": "images/service15"
+  },
+  {
+    "type": "Extragen",
+    "description": "velit anim Lorem amet labore pariatur anim eu enim eu nisi labore aliqua esse proident reprehenderit quis commodo minim do ipsum excepteur reprehenderit enim veniam",
+    "price": "$451.38",
+    "url": "images/service16"
+  },
+  {
+    "type": "Exposa",
+    "description": "fugiat est ullamco mollit amet reprehenderit laborum id deserunt amet elit reprehenderit anim dolor veniam et eiusmod deserunt non reprehenderit magna fugiat exercitation excepteur et",
+    "price": "$877.08",
+    "url": "images/service17"
+  },
+  {
+    "type": "Optyk",
+    "description": "excepteur aute anim irure eiusmod excepteur do est ad tempor do Lorem laboris qui in esse aliqua nisi ut pariatur ullamco amet sit et dolore",
+    "price": "$362.23",
+    "url": "images/service18"
+  },
+  {
+    "type": "Acium",
+    "description": "quis minim deserunt ullamco veniam ex elit tempor adipisicing velit non nostrud velit duis nulla laborum officia consequat proident est quis irure nisi nostrud nisi",
+    "price": "$932.97",
+    "url": "images/service19"
+  }
+]

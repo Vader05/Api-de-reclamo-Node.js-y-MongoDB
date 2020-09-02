@@ -4,35 +4,64 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 var mongoose =  require('mongoose');
+var config = require('./config/config');
+var cors = require('cors');
 
+//Importing routes
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var employeeRouter= require('./routes/api/employee'); 
+<<<<<<< HEAD
 var clientRouter = require('./routes/api/client');
 var userRouter= require ('./routes/api/user');
+=======
+var serviceRouter = require('./routes/servicesRouter');
+
+>>>>>>> 65d3ec8385e1da5794dbd26a45951aaf38da126b
 
 var app = express();
 
 //conection to mongoDB
-var mongoBD = 'mongodb://localhost/backendRest';
-mongoose.connect(mongoBD, {useNewUrlParser: true});
-mongoose.Promise= global.Promise;
-var db = mongoose.connection;
-db.on('error', console.error.bind(console, "MongoBD conection error"));
+const connect = mongoose.connect(config.mongoUrl, { 
+  useUnifiedTopology: true, 
+  useNewUrlParser: true,
+  useFindAndModify: false  
+});
+
+connect.then(cb => {
+  console.log('Correctly connected to MongoDB');
+}).catch(err => console.log(err));
 
 
-
+<<<<<<< HEAD
 app.use(logger('dev')); 
+=======
+//Middlewares
+app.use(cors());
+app.use(logger('dev'));
+>>>>>>> 65d3ec8385e1da5794dbd26a45951aaf38da126b
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+
+//Routes
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/api/employee', employeeRouter);
+<<<<<<< HEAD
 app.use('/api/clients', clientRouter);
 app.use('/api/user', userRouter);
+=======
+app.use('/services', serviceRouter);
+
+
+
+
+//ErrorHandling
+>>>>>>> 65d3ec8385e1da5794dbd26a45951aaf38da126b
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -47,7 +76,10 @@ app.use(function(err, req, res, next) {
 
   // render the error page
   res.status(err.status || 500);
-  res.render('error');
+  res.json({
+    message: err.message,
+    error: err
+  });
 });
 
 module.exports = app;

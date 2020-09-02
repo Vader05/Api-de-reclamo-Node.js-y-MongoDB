@@ -17,6 +17,9 @@ const serviceSchema = new Schema ({
         required: true,
         min: 0
     },
+    url: {
+        type: String
+    }
 })
 
 var Service = mongoose.model('Service', serviceSchema);
