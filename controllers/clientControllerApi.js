@@ -73,3 +73,12 @@ exports.removeClaim= function(req, res){
     }
     
 }
+
+exports.findClientByUser= function(req, res){
+    var client = Client.find({user:req.iduser});
+    if(client!=null){
+        res.status(200).json(client);
+    }else{
+        res.status(403).json(err);
+    }
+}

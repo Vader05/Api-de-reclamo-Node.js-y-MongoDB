@@ -39,7 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //Routes
 app.use('/api/employee', employeeRouter);
 app.use('/clients', clientRouter);
-app.use('/api/user', userRouter);
+app.use('/user', userRouter);
 app.use('/services', serviceRouter);
 
 
