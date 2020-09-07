@@ -11,7 +11,7 @@ exports.userLIst = function(req, res){
 
 
 exports.user_create = function(req, res){
-    var user= new User({firstname: req.body.firstname, lastname: req.body.lastname, admin: req.body.admin});
+    var user= new User({username: req.body.firstname, password: req.body.lastname, employee: req.body.admin});
     user.save(function(err, result){
         if(err) return res.status(500).json(err);
         res.status(200).json(result); 
