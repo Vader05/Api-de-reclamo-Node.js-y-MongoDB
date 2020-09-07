@@ -1,4 +1,4 @@
-var Employee = require('../../models/employee');
+var Employee = require('../models/employee');
 
 exports.employeeLIst = function(req, res){
     Employee.find({}, function(err, employee){
@@ -8,7 +8,6 @@ exports.employeeLIst = function(req, res){
         });
     });
 }
-
 
 exports.employee_create = function(req, res){
     var empl= new Employee({employeeId: req.body.employeeId, name: req.body.name, job: req.body.job, salary: req.body.salary});

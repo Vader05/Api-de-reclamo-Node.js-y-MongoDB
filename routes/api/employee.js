@@ -1,6 +1,6 @@
 var express=require('express');
 var router= express.Router();
-var employeeController= require('../../controllers/api/employeeControllerApi');
+var employeeController= require('../../controllers/employeeControllerApi');
 
 router.get('/', employeeController.employeeLIst);
 router.post('/create', employeeController.employee_create);

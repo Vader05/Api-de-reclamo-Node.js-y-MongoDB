@@ -1,4 +1,4 @@
-var Client = require('../../models/client');
+var Client = require('../models/client');
 const { NotExtended } = require('http-errors');
 
 exports.clientLIst = function(req, res){
@@ -19,11 +19,20 @@ exports.client_create = function(req, res){
 }
 
 exports.clientAddClaim= function(req, res){
-    Client.updateOne({_id: req.body.id}, {claim:{ClaimArea:req.body.ClaimArea, description:req.body.description}}, function(err, result){
-        if(err) res.status(500).json(err);
-        res.status(200).json(result);
+    Client.findById(req.body.id).then(client=>{
+        if(client!=null){
+            client.claim.push({claimArea:req.body.claimArea, description:req.body.description})
+            client.save().then(result=>{
+                res.json(result);
+            }).catch(err=>{
+                res.json(err);
+            })
+        }
+    }).catch(error=>{
+        console.log(error);
     });
 }
+
 exports.clientAddService = function(req,res){
     Client.findById(req.body.id).then(client=>{
         if(client!=null){
@@ -41,5 +50,26 @@ exports.clientAddService = function(req,res){
      //   if(err) res.status(500).json(err);
       //  res.status(200).json(result);
     //});
+}
 
+exports.findClientById= function(req, res){
+    Client.findById(req.body.id, function(err, result){
+        if(err) console.log(err);
+        if(result!=null){
+            res.status(200).json(result);
+        }else{
+            res.status(500).json(err);
+        }
+    });
+}
+
+exports.removeClaim= function(req, res){
+    var client =Client.findById(req.body.id);
+    if(client!=null){
+        client.claim.id(req.body.idclaim).remove();
+        res.status(200);
+    }else{
+        res.status(403);
+    }
+    
 }
