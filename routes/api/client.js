@@ -8,5 +8,6 @@ router.post('/claim', clientController.clientAddClaim);
 router.put('/service', clientController.clientAddService);
 router.get('/clientid', clientController.findClientById );
 router.post('/deleteclaim',clientController.removeClaim );
+router.get('/finduser',clientController.findClientByUser);
 
 module.exports=router;
