@@ -1,6 +1,5 @@
 const mongoose= require('mongoose');
 const Schema= mongoose.Schema;
-const prueba = new Schema({name:{type: String}});
 
 const claimSchema = new Schema({
     claimArea : {
@@ -24,12 +23,10 @@ const claimSchema = new Schema({
 const clientServiceSchema = new Schema({
     employeeId: {
         type: String,
-        required: true
+        required: false
     },
     serviceId: {
         type: String,
-        //type: mongoose.Schema.Types.ObjectId,
-        //ref: 'Service'
         required: true
     },
     registrationDate: {

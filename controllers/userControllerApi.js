@@ -9,9 +9,12 @@ exports.userLIst = function(req, res){
 
 
 exports.user_create = function(req, res){
-    var user= new User({username: req.body.username, password: req.body.password, employee: req.body.employee});
-    user.save(function(err, result){
-        if(err) return res.status(500).json(err);
-        res.status(200).json(result); 
-    });
+    User.create(req.body)
+    .then((users) => {
+        console.log('User Created ', users)
+        res.statusCode = 200
+        res.setHeader('Content-Type', 'application/json')
+        res.json(users)
+    }, (err) => next(err))
+    .catch((err) => next(err))
 }

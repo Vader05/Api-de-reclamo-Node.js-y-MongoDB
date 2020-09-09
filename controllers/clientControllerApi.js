@@ -1,12 +1,9 @@
 var Client = require('../models/client');
-const { NotExtended } = require('http-errors');
 
 exports.clientLIst = function(req, res){
     Client.find({}, function(err, client){
         if(err) console.log(err);
-        res.status(200).json({
-            clients: client
-        });
+        res.status(200).json(client);
     });
 }
 
@@ -34,9 +31,13 @@ exports.clientAddClaim= function(req, res){
 }
 
 exports.clientAddService = function(req,res){
-    Client.findById(req.body.id).then(client=>{
+    Client.findById(req.body.clientId).then(client=>{
         if(client!=null){
-            client.service.push({employeeId:req.body.emp, serviceId:req.body.service,state:req.body.state})
+            client.service.push(
+            {
+                serviceId: req.body.serviceId, 
+                state: req.body.state
+            })
             client.save().then(data=>{
                 res.json(data);
             }).catch(err=>{
@@ -75,7 +76,7 @@ exports.removeClaim= function(req, res){
 }
 
 exports.findClientByUser= function(req, res){
-    Client.find({user:req.body.iduser}, function(err, result){
+    Client.find({user: req.params.id}, function(err, result){
         if(err){
             console.log(err);
         }

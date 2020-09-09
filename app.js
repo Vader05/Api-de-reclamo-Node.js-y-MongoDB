@@ -8,9 +8,9 @@ var config = require('./config/config');
 var cors = require('cors');
 
 //Importing routes
-var employeeRouter= require('./routes/api/employee'); 
-var clientRouter = require('./routes/api/client');
-var userRouter= require ('./routes/api/user');
+var employeeRouter= require('./routes/employee'); 
+var clientRouter = require('./routes/client');
+var userRouter= require ('./routes/user');
 var serviceRouter = require('./routes/servicesRouter')
 
 var app = express();
@@ -37,9 +37,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 //Routes
-app.use('/api/employee', employeeRouter);
+app.use('/employees', employeeRouter);
 app.use('/clients', clientRouter);
-app.use('/user', userRouter);
+app.use('/users', userRouter);
 app.use('/services', serviceRouter);
 
 
