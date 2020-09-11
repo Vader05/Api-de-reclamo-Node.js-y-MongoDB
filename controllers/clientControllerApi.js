@@ -4,9 +4,7 @@ const { NotExtended } = require('http-errors');
 exports.clientLIst = function(req, res){
     Client.find({}, function(err, client){
         if(err) console.log(err);
-        res.status(200).json({
-            clients: client
-        });
+        res.status(200).json(client);
     });
 }
 
@@ -46,10 +44,6 @@ exports.clientAddService = function(req,res){
     }).catch(error=>{
         console.log(error);
     });
-    //Client.updateOne({_id:req.body.id},{service:{employeeId:req.body.emp, serviceId:req.body.service,state:req.body.state}}, function(err, result){
-     //   if(err) res.status(500).json(err);
-      //  res.status(200).json(result);
-    //});
 }
 
 exports.findClientById= function(req, res){
@@ -64,13 +58,18 @@ exports.findClientById= function(req, res){
 }
 
 exports.removeClaim= function(req, res){
-    var client =Client.findById(req.body.id);
-    if(client!=null){
-        client.claim.id(req.body.idclaim).remove();
-        res.status(200);
-    }else{
-        res.status(403);
-    }
+    Client.updateOne({'_id':req.body.id},{"$pull":{"claim":{"_id": req.body.idclaim}}},function(err, afect){
+        if(err) console.log(err);
+            if(afect.nModified >0){
+                console.log(afect);
+                res.status(204).send();
+            }else{
+                res.status(404).json({
+                    "success": false,
+                    "msg": "no se encontro el reclamo"
+                });
+            } 
+    });
     
 }
 
@@ -83,4 +82,35 @@ exports.findClientByUser= function(req, res){
         res.status(200).json(result);
     });
    
+}
+
+exports.removeService = function(req, res){
+    Client.updateOne({'_id': req.body.id},{"$pull":{"service":{"_id": req.body.idservice}}},function(err, afect){
+        if(err) console.log(err);
+            if(afect.nModified >0){
+                console.log(afect);
+                res.status(204).send();
+            }else{
+                res.status(404).json({
+                    "success": false,
+                    "msg": "no se encontro el servicio "
+                });
+            } 
+    })
+}
+
+exports.updateStatusclaim= function(req, res){
+    Client.updateOne({'_id':req.body.id, 'claim._id':req.body.idclaim},{"$set":{"claim.$.state": req.body.state, "claim.$.reply":req.body.reply}}, function(err, afect){
+        if(err) console.log(err);
+        console.log(afect);
+        if(afect.nModified>0){
+            console.log(afect);
+            res.status(204).send();
+        }else{
+            res.status(404).json({
+                "success": false,
+                "msg": "no se econotro el reclamo"
+            })
+        }
+    })
 }

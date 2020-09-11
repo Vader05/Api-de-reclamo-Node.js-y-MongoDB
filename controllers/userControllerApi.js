@@ -3,9 +3,7 @@ var User = require('../models/user');
 exports.userLIst = function(req, res){
     User.find({}, function(err, user){
         if(err) console.log(err);
-        res.status(200).json({
-            users: user
-        });
+        res.status(200).json(user);
     });
 }
 

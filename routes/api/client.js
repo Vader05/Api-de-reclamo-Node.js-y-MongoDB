@@ -9,5 +9,7 @@ router.put('/service', clientController.clientAddService);
 router.get('/clientid', clientController.findClientById );
 router.post('/deleteclaim',clientController.removeClaim );
 router.get('/finduser',clientController.findClientByUser);
+router.post('/removeservice', clientController.removeService);
+router.post('/setclaimstate', clientController.updateStatusclaim);
 
 module.exports=router;

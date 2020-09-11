@@ -18,6 +18,10 @@ const claimSchema = new Schema({
     reply: {
         type: String,
         required: false
+    },
+    state :{
+        type:String,
+        default :'pendiente'
     }
 });
 
@@ -42,7 +46,7 @@ const clientServiceSchema = new Schema({
     },
     state: {
         type: String,
-        required: true
+        required: ''
     }
 });
 
@@ -70,7 +74,6 @@ const ClientSchema = new Schema({
     claim:[claimSchema],
         
     service:[clientServiceSchema]
-    
 });
 
 
