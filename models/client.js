@@ -2,9 +2,9 @@ const mongoose= require('mongoose');
 const Schema= mongoose.Schema;
 
 const claimSchema = new Schema({
-    claimArea : {
+    type : {
         type: String,
-        required: false
+        required: true
     },
     description: {
         type: String,

@@ -6,7 +6,7 @@ router.get('/', clientController.clientLIst);
 router.post('/create', clientController.client_create);
 router.post('/claim', clientController.clientAddClaim);
 router.put('/service', clientController.clientAddService);
-router.get('/clientid', clientController.findClientById );
+router.post('/clientid', clientController.findClientById );
 router.post('/deleteclaim',clientController.removeClaim );
 router.get('/finduser/:id',clientController.findClientByUser);
 router.post('/removeservice', clientController.removeService);

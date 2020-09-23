@@ -18,7 +18,8 @@ exports.client_create = function(req, res){
 exports.clientAddClaim= function(req, res){
     Client.findById(req.body.id).then(client=>{
         if(client!=null){
-            client.claim.push({claimArea:req.body.claimArea, description:req.body.description})
+            console.log(req.body);
+            client.claim.push({type:req.body.type, description:req.body.description})
             client.save().then(result=>{
                 res.json(result);
             }).catch(err=>{
@@ -92,8 +93,8 @@ exports.removeService = function(req, res){
     Client.updateOne({'_id': req.body.id},{"$pull":{"service":{"_id": req.body.idservice}}},function(err, afect){
         if(err) console.log(err);
             if(afect.nModified >0){
-                console.log(afect);
-                res.status(204).send();
+                res.status(204);
+                res.json(afect);
             }else{
                 res.status(404).json({
                     "success": false,
