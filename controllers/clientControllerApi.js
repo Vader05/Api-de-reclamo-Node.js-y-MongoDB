@@ -119,3 +119,37 @@ exports.updateStatusclaim= function(req, res){
         }
     });
 }
+
+exports.updateService= function(req, res){
+    var data= req.body;
+    Client.updateOne({'_id':data.id, 'service._id':data.idservice},{'$set':{'service.$.state':data.state}}, function(err, afect){
+        if(err) console.log(err);
+        console.log(afect);
+        if(afect.nModified>0){
+            console.log(afect);
+            res.status(204).send();
+        }else{
+            res.status(404).json({
+                'success':false,
+                'msg':"no se encontro el servicio"
+            })
+        }
+    });
+}
+
+exports.setSuportDateService= function(req, res){
+    var data = req.body;
+    Client.updateOne({'_id':data.id, 'service._id':data.idservice},{'$set':{'service.$.supportDate': data.supportDate}}, function(err, afect){
+        if(err) console.log(err);
+        console.log(afect);
+        if(afect.nModified>0){
+            console.log(afect);
+            res.status(204).send();
+        }else{
+            res.status(404).json({
+                'success':false,
+                'msg':"no se encontro el servicio"
+            })
+        }
+    })
+}
