@@ -11,7 +11,8 @@ router.post('/deleteclaim',clientController.removeClaim );
 router.get('/finduser/:id',clientController.findClientByUser);
 router.post('/removeservice', clientController.removeService);
 router.post('/setclaimstate', clientController.updateStatusclaim);
-router.post('/setservicestate', clientController.updateService);
-router.post('/suportdateservice', clientController.setSuportDateService);
+router.put('/updateClaim', clientController.updateStatusclaim);
+router.put('/setservicestate', clientController.updateService); //pasar en el body el id de cliente y servicio y el estado del servicio
+router.put('/suportdateservice', clientController.setSuportDateService); //pasar como parametros el id del cliente con el id del servicio y la fecha de "instalacion"
 
 module.exports=router;
