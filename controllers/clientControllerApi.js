@@ -122,7 +122,7 @@ exports.updateStatusclaim= function(req, res){
 
 exports.updateService= function(req, res){
     var data= req.body;
-    Client.updateOne({'_id':data.id, 'service._id':data.idservice},{'$set':{'service.$.state':data.state}}, function(err, afect){
+    Client.updateOne({'_id':data.id, 'service._id':data.idservice},{'$set':{'service.$.state':data.state, 'service.$.employeeId':data.idemployee,'service.$.supportDate': new Date().now()}}, function(err, afect){
         if(err) console.log(err);
         console.log(afect);
         if(afect.nModified>0){
@@ -137,19 +137,3 @@ exports.updateService= function(req, res){
     });
 }
 
-exports.setSuportDateService= function(req, res){
-    var data = req.body;
-    Client.updateOne({'_id':data.id, 'service._id':data.idservice},{'$set':{'service.$.supportDate': data.supportDate}}, function(err, afect){
-        if(err) console.log(err);
-        console.log(afect);
-        if(afect.nModified>0){
-            console.log(afect);
-            res.status(204).send();
-        }else{
-            res.status(404).json({
-                'success':false,
-                'msg':"no se encontro el servicio"
-            })
-        }
-    })
-}
