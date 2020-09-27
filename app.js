@@ -1,3 +1,4 @@
+require('dotenv').config();
 var createError = require('http-errors');
 var express = require('express');
 var path = require('path');
@@ -16,7 +17,8 @@ var serviceRouter = require('./routes/servicesRouter')
 var app = express();
 
 //conection to mongoDB
-const connect = mongoose.connect(config.mongoUrl, { 
+var mongoDB= process.env.MONGO_URL
+const connect = mongoose.connect(mongoDB, { 
   useUnifiedTopology: true, 
   useNewUrlParser: true,
   useFindAndModify: false  
