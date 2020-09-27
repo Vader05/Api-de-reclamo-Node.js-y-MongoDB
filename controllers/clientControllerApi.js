@@ -122,7 +122,8 @@ exports.updateStatusclaim= function(req, res){
 
 exports.updateService= function(req, res){
     var data= req.body;
-    Client.updateOne({'_id':data.id, 'service._id':data.idservice},{'$set':{'service.$.state':data.state, 'service.$.employeeId':data.idemployee,'service.$.supportDate': new Date().now()}}, function(err, afect){
+    console.log(req.body)
+    Client.updateOne({'_id':data.id, 'service._id':data.idservice},{'$set':{'service.$.state':data.state, 'service.$.employeeId':data.idemployee,'service.$.supportDate': new Date()}}, function(err, afect){
         if(err) console.log(err);
         console.log(afect);
         if(afect.nModified>0){
