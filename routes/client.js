@@ -11,5 +11,6 @@ router.post('/deleteclaim',clientController.removeClaim );
 router.get('/finduser/:id',clientController.findClientByUser);
 router.post('/removeservice', clientController.removeService);
 router.post('/setclaimstate', clientController.updateStatusclaim);
+router.put('/updateClaim', clientController.updateStatusclaim);
 
 module.exports=router;
